@@ -8,3 +8,4 @@ connection = pymysql.connect(host='localhost',
                              db= "sys",
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
+cursor = connection.cursor()
