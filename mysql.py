@@ -4,7 +4,7 @@ import keys
 connection = pymysql.connect(host='localhost',
                              user='copperstick6',
                              password=keys.sqlKey(),
-                             db= "sys",
+                             db= "menu",
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
 

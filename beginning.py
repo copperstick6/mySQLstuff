@@ -5,9 +5,15 @@ import MySQLdb
 connection = pymysql.connect(host='localhost',
                              user='copperstick6',
                              password=keys.sqlKey(),
-                             db= "sys",
+                             db= "menu",
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
-cursor = connection.cursor()
-cursor.close()
+
+with connection.cursor() as cursor:
+    sql = "SELECT * FROM users"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    for record in result:
+        print("id: " + str(record['id']) + " email: " + str(record['email']) + " password: " + str(record['password']))
+
 connection.close()
