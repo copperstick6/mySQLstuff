@@ -10,8 +10,8 @@ connection = pymysql.connect(host='localhost',
                              cursorclass=pymysql.cursors.DictCursor)
 
 with connection.cursor() as cursor:
-    sql = "INSERT INTO users (id, email, password) VALUES ('3', 'tested@tested.com', 'KappaPride');"
-    cursor.execute(sql)
+    sql = "INSERT INTO users (id, email, password) VALUES (%s, %s, %s);"
+    cursor.execute(sql, ("4", "testing@testing.com", "Kappa"))
     connection.commit()
     getData = "SELECT * FROM users"
     cursor.execute(getData)
